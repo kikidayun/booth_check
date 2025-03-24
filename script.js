@@ -103,11 +103,17 @@ function getMaterialsForClass(className, level = null, device = null) {
             { name: "실습 휴대폰 or 태블릿", ratio: 1, requiresQuantity: true }, 
         ],
 
-        "신재생에너지": [
-            { name: ["레고브릭", "바퀴", "할로겐등"] },
-            { name: "태양광판+USB선풍기", ratio: 1, requiresQuantity: true },
-            { name: ["절연테이프", "색테이프", "네임펜", "글루건", "멀티탭"] },
-        ],    
+        "신재생에너지": {
+            "저학년": [
+                { name: "신재생조립kit", ratio: 1, requiresQuantity: true },
+                ],
+
+            "고학년": [
+                { name: ["레고브릭", "바퀴", "할로겐등"] },
+                { name: "태양광판+USB선풍기", ratio: 1, requiresQuantity: true },
+                { name: ["절연테이프", "색테이프", "네임펜", "글루건", "멀티탭"] },
+            ]       
+        },   
 
         "3D설계 모델링": [
                 { name: "3D펜", ratio: 1, requiresQuantity: true }, 
