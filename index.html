@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교구 점검표</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- 상단 타이틀 컨테이너 -->
+<div class="title-container">
+    <h1>📋 부스용 교구 점검표 🏫</h1>
+
+    
+    <!-- 사용법 버튼과 팝업 -->
+    <div class="usage-container">
+        <button id="usageButton">사용법</button>
+        <div id="usagePopup" class="popup">
+            <p>📌 <strong>교구 점검표 사용안내</strong></p> 
+            <p>1. 학교명, 수업 차시와 횟수, 인원을 입력하세요.</p>
+            <p>2. 해당 <strong>과목</strong>을 선택하세요.</p>
+            <p>3. <strong>2개 반 이상</strong>인 경우, 프로그램명 옆 숫자를 수정하세요.</p>
+            <p>4. 각 프로그램 <strong>옵션</strong>(교시,장소 등)을 선택해주세요.</p>
+            <p>5. 메모에는 <strong>카트, 현수막 등 특이사항</strong>을 입력하세요.</p>
+            <p>6. <strong>"선택한 과목 확인"</strong>을 눌러 프로그램을 확인하세요.</p>
+            <p>7. <strong>"인쇄"</strong> 버튼을 눌러 출력 후 교구를 챙겨보세요.</p><br>      
+            
+            <p>💡 <strong>옵션</strong> 미션택시 교구 없음으로 나옵니다.</p> 
+            <p>💡 <strong>출력</strong>시 컬러설정 확인해주세요.</p> 
+            <button id="closePopup">닫기</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <form id="classForm">
+        <!-- "전체 선택" 버튼을 입력 폼 옆에 배치 -->
+        <div class="form-header">
+            <input type="text" name="schoolName" placeholder="학교명 입력" class="input-field">
+            <div class="input-group">
+                <input type="number" name="lessonCount" min="1" placeholder="수업" class="input-field">
+                <span>차시</span>
+            </div>
+            <div class="input-group">
+                <input type="number" name="lessonFrequency" min="1" placeholder="횟수" class="input-field">
+                <span>회</span>
+            </div>
+            <div class="input-group">
+                <input type="number" name="totalStudents" id="totalStudents" min="1" placeholder="인원" class="input-field">
+                <span>명</span>
+            </div>
+            <button type="button" onclick="toggleAllClasses()">과목 전체 선택</button>
+        </div>
+
+        
+        <!-- 전체 분야 -->
+        <div class="category-container category-booth">
+            <h3>🎪 부스용 프로그램</h3>
+
+            <div class="material-item">
+                <input type="checkbox" id="class-1" name="class1" value="로봇 공학자"> <span>로봇 공학자</span>
+                <input type="number" name="count1" min="1" value="1" class="number-input">
+                <label class="level-input"><input type="checkbox" name="level1" value="유킷" onclick="autoCheck('class-27')"> 유킷</label>
+                <label class="level-input"><input type="checkbox" name="level1" value="지무" onclick="autoCheck('class-27')"> 지무</label>
+                <label class="level-input"><input type="checkbox" name="level1" value="네오봇" onclick="autoCheck('class-27')"> 네오봇</label>
+            </div>
+
+
+            <div class="material-item">
+                <input type="checkbox" id="class-2" name="class2" value="자율주행"> <span>자율주행</span>
+                <input type="number" name="count2" min="1" value="1" class="number-input">
+            </div>
+    
+            <div class="material-item">
+                <input type="checkbox" id="class-3" name="class3" value="머신러닝"> <span>머신러닝</span>
+                <input type="number" name="count3" min="1" value="1" class="number-input">
+                <label class="level-input"><input type="checkbox" name="level3" value="컴퓨터실" onclick="autoCheck('class-6')"> 컴퓨터실</label>
+                <label class="level-input"><input type="checkbox" name="level3" value="노트북" onclick="autoCheck('class-6')"> 노트북</label>
+                <label class="level-input"><input type="checkbox" name="level3" value="태블릿" onclick="autoCheck('class-6')"> 태블릿</label>
+            </div>
+
+            <div class="material-item">
+                <input type="checkbox" id="class-4" name="class4" value="VR 프로그램"> <span>VR 프로그램</span>
+                <input type="number" name="count4" min="1" value="1" class="number-input">
+                <label class="level-input"><input type="checkbox" name="level4" value="갈색 VR" onclick="autoCheck('class-14')"> 갈색 VR</label>
+                <label class="level-input"><input type="checkbox" name="level4" value="파랑 VR" onclick="autoCheck('class-14')"> 파랑 VR</label>
+            </div>
+
+
+            <div class="material-item">
+                <input type="checkbox" id="class-5" name="class5" value="AR"> <span>AR</span>
+                <input type="number" name="count5" min="1" value="1" class="number-input">
+            </div>
+
+            <div class="material-item">
+                <input type="checkbox" id="class-6" name="class6" value="홀로그램"> <span>홀로그램</span>
+                <input type="number" name="count6" min="1" value="1" class="number-input">
+            </div>
+
+            <div class="material-item">
+                <input type="checkbox" id="class-7" name="class7" value="메타버스"> <span>메타버스</span>
+                <input type="number" name="count7" min="1" value="1" class="number-input">
+            </div>
+
+
+            <div class="material-item">
+                <input type="checkbox" id="class-8" name="class8" value="신재생에너지"> <span>신재생에너지</span>
+                <input type="number" name="count8" min="1" value="1" class="number-input">
+            </div>
+    
+
+            <div class="material-item">
+                <input type="checkbox" id="class-9" name="class9" value="3D설계 모델링"> <span>3D설계 모델링</span>
+                <input type="number" name="count9" min="1" value="1" class="number-input">
+            </div>
+
+                
+            <div class="material-item">
+                <input type="checkbox" id="class-10" name="class10" value="시각디자인"> <span>시각디자인</span>
+                <input type="number" name="count10" min="1" value="1" class="number-input">
+                <label class="level-input"><input type="checkbox" name="level0" value="Quiver" onclick="autoCheck('class-10')"> Quiver</label>
+                <label class="level-input"><input type="checkbox" name="level0" value="AI 캐릭터" onclick="autoCheck('class-10')"> AI 캐릭터</label>
+            </div>
+ 
+            <div class="material-item">
+                <input type="checkbox" id="class-11" name="class11" value="애니메이터"> <span>애니메이터</span>
+                <input type="number" name="count11" min="1" value="1" class="number-input">
+            </div>
+
+            <div class="material-item">
+                <input type="checkbox" id="class-12" name="class12" value="스마트팩토리"> <span>스마트팩토리</span>
+                <input type="number" name="count12" min="1" value="1" class="number-input">
+            </div>
+                
+
+            <div class="material-item">
+                <input type="checkbox" id="class-13" name="class13" value="휴머노이드"> <span>휴머노이드</span>
+                <input type="number" name="count13" min="1" value="1" class="number-input">
+            </div>
+        </div>
+    
+
+        <!-- 메모 입력 -->
+        <div class="memo-container">
+            <label for="memo">📝 메모:</label><br>
+            <textarea id="memo" name="memo" rows="4" placeholder="카트, 휴대폰, 현수막 수량 등 메모사항 입력하세요" style="width: 98%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); font-family: 'Nanum Gothic', sans-serif; resize: vertical;"></textarea>
+        </div><br>
+
+
+        <!-- 선택한 과목 확인 버튼 -->
+        <button type="button" onclick="showSelectedMaterials()">선택한 과목 확인</button>  
+        <button type="button" onclick="printSelectedMaterials()">인쇄</button>
+    </form>
+
+    <!-- 선택한 과목 리스트 표시 -->
+    <div id="selectedMaterialsList"></div>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>

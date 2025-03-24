@@ -1,0 +1,360 @@
+h1 {
+    font-size: 30px; /* 기존보다 약간 키움 */
+    font-weight: bold;
+    text-align: left;
+    color: #2b4b6f; /* 좀 더 차분한 딥블루 계열 */
+    background: linear-gradient(to right, #f0f8ff, #d9ecf5); /* 부드러운 그라데이션 */
+    padding: 20px;
+    border-left: 8px solid #379dc6;
+    border-radius: 12px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Nanum Gothic', sans-serif;
+    position: relative;
+}
+/* 📌 타이틀과 사용법 버튼을 포함하는 컨테이너 */
+.title-container {
+    display: flex;
+    justify-content: space-between; /* 제목과 버튼을 양쪽 끝으로 배치 */
+    align-items: center;
+    padding: 5px 5px;
+    border-radius: 2px;
+    font-family: 'Nanum Gothic', sans-serif;
+    position: relative; /* 팝업 위치 조정을 위해 설정 */
+}
+
+
+/* 📌 타이틀 스타일 */
+.title-container h1 {
+    font-size: 26px;
+    font-weight: bold;
+    width: 80%; /* ✅ 가로 길이를 80%로 확장 (원하는 값으로 변경 가능) */
+    color: #2b4b6f;
+    display: flex;
+    align-items: center;
+}
+
+
+/* 📌 사용법 버튼 */
+.usage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* 오른쪽 정렬 */
+    position: relative;
+}
+
+#usageButton {
+    padding: 8px 15px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#usageButton:hover {
+    background-color: #c9302c;
+}
+
+/* 📌 팝업 스타일 */
+.popup {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 45px; /* 버튼 바로 아래 정렬 */
+    width: 400px;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    line-height: 1; /* ✅ 줄간격 조정 */
+    border-radius: 5px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+}
+
+/* 📌 팝업 닫기 버튼 */
+#closePopup {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+#closePopup:hover {
+    background-color: #c9302c;
+}
+
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.form-header {
+    display: flex;
+    align-items: center; /* 수평 정렬 */
+    gap: 20px; /* 입력 필드와 버튼 간의 간격 */
+}
+
+.form-header button {
+    align-self: center; /* 버튼을 입력 필드와 같은 높이로 정렬 */
+    margin-top: 10px; /* 버튼을 약간 아래로 이동 */
+    padding: 8px 15px; /* 버튼 크기 조정 */
+}
+
+.input-field {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 100px; /* 모든 입력 필드 크기 통일 */
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #379dc6;
+    box-shadow: 0 0 8px rgba(55, 157, 198, 0.5);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 숫자 입력 필드와 텍스트 간의 간격 */
+}
+
+.input-group span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555; /* 텍스트 색상 */
+}
+
+.material-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 5px; /* 아이템 간의 간격 추가 */
+}
+
+.material-item span {
+    display: inline-block; /* 블록 요소처럼 동작 */
+    width: 250px; /* 과목명 너비 고정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+.number-input {
+    margin-left: 10px; /* 입력 필드와 과목명 간격 설정 */
+}
+
+.material-item label {
+    margin: 0 5px;
+}
+
+.material-item > div {
+    flex-shrink: 0;
+    width: 100px; /* 숫자 입력칸 위치를 일정하게 유지 */
+    margin-left: 10px; /* 과목명과 숫자 입력칸 간격 조절 */
+}
+
+
+input[type="text"],
+input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border: 1px solid #379dc6;
+    box-shadow: 0 0 5px rgba(55, 157, 198, 0.5);
+}
+
+.level-input input {
+    margin-right: 15px;
+}
+
+.level-input label {
+    display: inline-block;
+    margin-right: 50px; /* 각 라벨 사이 간격 */
+}
+
+.editable-input {
+    width: 10px; /* 너비 조절 */
+    height: 20px; /* 높이 조절 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    border: 1px solid #ccc; /* 테두리 */
+    border-radius: 5px; /* 둥근 테두리 */
+    padding: 3px; /* 내부 여백 */
+    box-sizing: border-box; /* 테두리와 패딩 포함 크기 계산 */
+    font-size: 14px; /* 글자 크기 */
+}
+
+
+button {
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 10px 20px;
+    background-color: #5F5F5F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; /* 버튼과 아래 요소 간의 간격 */
+}
+
+button:hover {
+    background-color: #379dc6;
+}
+
+.school-name {
+    font-size: 22pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.material-item input[type="checkbox"],
+.material-item input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: #379dc6; /* 체크박스와 라디오 버튼 색상 변경 */
+    margin-right: 5px;
+}
+
+.material-item input[type="number"] {
+    width: 30px;
+}
+
+.transparent-input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: white;
+    min-width: 50px;
+    transition: border-color 0.3s;
+}
+
+.transparent-input:focus {
+    outline: none;
+    border: 1px solid #379dc6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 입력칸 사이의 간격 */
+    margin-bottom: 5px;
+}
+
+/* 교구 줄 밑 간격 조절 */
+.materials {
+    margin-bottom: 15px; /* 교구 줄 아래 여백 */
+}
+
+/* 기존 highlight-text 스타일 */
+.highlight-text {
+    color: #008cff; /* 파란색 */
+    font-weight: bold; /* 굵게 표시 */
+    font-size: 14px; /* 글자 크기 */
+}
+
+.highlight-material {
+background-color: yellow; /* 배경색 */
+font-weight: bold; /* 굵게 */
+padding: 3px 6px; /* 내부 여백 */
+border-radius: 5px; /* 모서리 둥글게 */
+}
+
+h3 {
+    font-size: 16px; /* 제목 크기 */
+    margin-bottom: 5px; /* 제목과 항목 간 간격 */
+}
+
+.category-container {
+        padding: 8px 10px; /* 내부 여백 조정 (위아래, 양옆) */
+        margin-bottom: 18px; /* 섹션 간 간격 */
+        border-radius: 10px; /* 둥근 모서리 */
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+/* 분야별 색상 지정 */
+.category-booth {
+    background-color: #FFF5E6; /* 연한 주황색 톤 */
+}
+
+/* 버튼 배치 정렬 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.level-input {
+    display: none; /* 기본적으로 숨김 */
+    margin-left: 10px;
+}
+
+
+/* 인쇄 시에도 스타일 적용 */
+@media print {
+
+    body {
+        background-color: white; /* 인쇄 배경색 제거 */
+    }
+
+    .editable-input {
+        width: 50px; /* 인원 칸 크기 고정 */
+        text-align: center;
+        border: 1px solid #ddd; /* 테두리 표시 */
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    .school-name {
+        font-size: 22pt;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .material-item {
+        margin-bottom: 20px; /* 과목 간 간격 */
+    }
+
+    .material-item span {
+        font-weight: bold; /* 과목명만 굵게 표시 */
+        font-size: 16px; /* 글자 크기도 약간 키우기 */
+    }
+
+    .material-item div {
+        margin-bottom: 10px; /* 교구와 인원 사이 간격 */
+    }
+
+    .highlight-text {
+        color: #008cff !important; /* 인쇄에서도 파란색 유지 */
+        font-weight: bold !important; /* 굵게 표시 */
+        font-size: 14px !important; /* 글자 크기 */
+    }
+    
+    .material-item span {
+        font-weight: bold; /* 인쇄할 때만 볼드 적용 */
+    }
+    .print-box {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    
+
+}
