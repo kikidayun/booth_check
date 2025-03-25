@@ -127,7 +127,7 @@ function getMaterialsForClass(className, level = null, device = null) {
                 { name: "실습 휴대폰", ratio: 1, requiresQuantity: true },
                 ],
 
-            "AI 캐릭터": [
+            "이모티콘 제작": [
                 { name: "태블릿", ratio: 1, requiresQuantity: true },
                 { name: ["터치펜"] },
             ]       
@@ -384,7 +384,7 @@ function printSelectedMaterials() {
     printWindow.document.write(`
         <html>
         <head>
-            <title>수업 기자재 체크리스트</title>
+            <title>부스용 교구 점검표</title>
             <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
             <style>
                 body {
